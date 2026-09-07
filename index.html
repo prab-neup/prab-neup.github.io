@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Upgrade - Discern</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #12141a;
+      color: #e8eaef;
+      font: 14px system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Static, on GitHub Pages — not a Supabase Edge Function. Supabase's Edge
+    Functions deliberately downgrade any text/html GET response to
+    text/plain and attach a locked-down CSP, specifically to stop people
+    serving arbitrary web pages from their shared *.supabase.co domain; the
+    only supported way around it is a paid plan with a custom domain. Not
+    worth that for one static launcher page, so it lives here instead,
+    served as real, unmodified text/html the way GitHub Pages does for any
+    plain .html file.
+
+    Nothing on this page is secret. The Paddle "client-side token" is named
+    that specifically because it's meant to be public/embedded in a
+    browser page (the API key given during setup is the actual secret, and
+    never appears here) — same trust level as the Supabase publishable key
+    used elsewhere in this project.
+  -->
+  <p id="status">Opening checkout...</p>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script>
+    var userId = new URLSearchParams(window.location.search).get('uid');
+    var statusEl = document.getElementById('status');
+
+    if (!userId) {
+      statusEl.textContent = 'Missing uid parameter.';
+    } else {
+      // Flip these two when moving off the sandbox: drop the Environment.set
+      // call entirely (defaults to production), and swap in the live
+      // client-side token and live price ID from the Paddle dashboard.
+      Paddle.Environment.set('sandbox');
+      Paddle.Initialize({ token: 'test_ef2afd20ac7a60f8faf29da45fa' });
+
+      Paddle.Checkout.open({
+        items: [{ priceId: 'pri_01m17543ewnwrezw0dbcxnp55s', quantity: 1 }],
+        customData: { user_id: userId },
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Discern</title>
+  <style>
+    body { max-width: 680px; margin: 0 auto; padding: 48px 20px 96px; background: #12141a; color: #e8eaef;
+           font: 15px/1.6 -apple-system, 'Segoe UI', system-ui, sans-serif; }
+    h1 { font-size: 26px; margin-bottom: 4px; }
+    .updated { color: #9aa1b0; font-size: 13px; margin-bottom: 40px; }
+    h2 { font-size: 18px; margin-top: 40px; border-top: 1px solid #2b303c; padding-top: 24px; }
+    p, li { color: #cdd1db; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    a { color: #7c8cff; }
+    code { background: #1c212c; border: 1px solid #2b303c; border-radius: 4px; padding: 1px 5px; font-size: 13px; }
+    .highlight { background: rgba(124,140,255,0.1); border: 1px solid #2b303c; border-radius: 8px; padding: 16px 18px; margin: 16px 0; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 30 August 2026</p>
+
+  <p>Discern ("we," "the extension," "the service") is operated by Prabesh Neupane. This policy explains what data the extension and its related account system collect, why, and who else ever sees it.</p>
+
+  <div class="highlight">
+    <strong>The short version:</strong> your captured highlights, notes, and research analysis stay on your own device and are never sent to us. We only hold account information (email, sign-in credentials, and whether you're on trial or paid) needed to run the account and trial system.
+  </div>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong>Account information</strong> — the email address and password you sign up with, handled by our authentication provider, Supabase. We never see your password in plain text; Supabase handles that securely on our behalf.</li>
+    <li><strong>Entitlement status</strong> — when your trial started, and whether you've purchased a one-time license. This is the minimum needed to know whether the extension's paid features should be unlocked for your account.</li>
+    <li><strong>Payment information</strong> — handled entirely by Paddle.com, our payment provider and merchant of record. We never receive or store your card number, billing address, or any other payment detail — Paddle collects and processes that directly, under its own privacy policy.</li>
+  </ul>
+
+  <h2>What we deliberately never collect</h2>
+  <ul>
+    <li><strong>The text you highlight or capture.</strong> Notes, claims, sources, and every analysis result are stored locally in your browser's own storage (IndexedDB) and never transmitted to us. If you uninstall the extension or clear your browser's site data, that information is gone — we don't have a copy.</li>
+    <li><strong>Your Gemini API key.</strong> Discern uses a "bring your own key" model: your Gemini API key is stored locally in your browser, and every AI request goes directly from your device to Google. We never see the key or the content of any request or response.</li>
+    <li><strong>Your card details.</strong> As above — Paddle handles all payment data; it never reaches our systems.</li>
+  </ul>
+
+  <h2>Third parties involved</h2>
+  <p>Because of how the extension is built, a few other services necessarily see specific, limited data:</p>
+  <ul>
+    <li><strong>Google (Gemini API)</strong> — receives whatever text you choose to analyze, sent directly from your device using your own API key. This is governed by your own agreement with Google, not by us.</li>
+    <li><strong>Supabase</strong> — hosts our authentication and account database (your email, credentials, and entitlement status only).</li>
+    <li><strong>Paddle</strong> — processes payment and acts as merchant of record for the one-time purchase.</li>
+    <li><strong>OpenAlex</strong> — a free, public, keyless academic database the extension queries for citation counts and reference data on sources you've captured. These lookups use only public identifiers (like a DOI), never your account or personal information.</li>
+  </ul>
+
+  <h2>How long we keep it</h2>
+  <p>Account and entitlement data is kept for as long as your account exists. You can request deletion of your account and all associated account-level data (email, entitlement record) at any time by contacting us — see below. Your locally-stored research data is entirely under your own control and deleted whenever you clear it yourself or uninstall the extension.</p>
+
+  <h2>Security</h2>
+  <p>Account data is protected with Row Level Security at the database level, meaning your account information is only ever readable by your own signed-in session — not by other users, and not through the extension's public-facing code. Payment processing follows Paddle's own security and compliance standards as a licensed merchant of record.</p>
+
+  <h2>Children's privacy</h2>
+  <p>Discern is not directed at children under 16, and we do not knowingly collect information from them.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes in a way that materially affects how your data is handled, we'll update the date at the top of this page.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy or your data: <a href="mailto:prabeshp848@gmail.com">prabeshp848@gmail.com</a>.</p>
+</body>
+</html>

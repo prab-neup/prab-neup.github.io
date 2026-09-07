@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - Discern</title>
+  <style>
+    body { max-width: 680px; margin: 0 auto; padding: 48px 20px 96px; background: #12141a; color: #e8eaef;
+           font: 15px/1.6 -apple-system, 'Segoe UI', system-ui, sans-serif; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .sub { color: #9aa1b0; font-size: 15px; margin-bottom: 40px; max-width: 52ch; }
+    .tiers { display: flex; flex-direction: column; gap: 16px; }
+    .tier { background: #1c212c; border: 1px solid #2b303c; border-radius: 12px; padding: 24px; }
+    .tier-name { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #7c8cff; margin: 0 0 8px; }
+    .tier-price { font-size: 28px; font-weight: 700; margin: 0 0 12px; }
+    .tier-price span { font-size: 14px; font-weight: 400; color: #9aa1b0; }
+    ul { padding-left: 20px; margin: 12px 0 0; color: #cdd1db; }
+    li { margin-bottom: 6px; }
+    .note { color: #9aa1b0; font-size: 13px; margin-top: 32px; }
+    a { color: #7c8cff; }
+  </style>
+</head>
+<body>
+  <h1>Pricing</h1>
+  <p class="sub">Capture is free, forever. You only pay for the reconciliation pipeline — the part that actually finds where your sources disagree.</p>
+
+  <div class="tiers">
+    <div class="tier">
+      <p class="tier-name">Free</p>
+      <p class="tier-price">$0</p>
+      <ul>
+        <li>Highlight and capture from any web page or PDF</li>
+        <li>Tags, comments, and durable highlights that survive page edits</li>
+        <li>Citation metadata captured automatically, exported as BibTeX or RIS</li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <p class="tier-name">7-Day Trial</p>
+      <p class="tier-price">$0 <span>&mdash; full access, no card required to start</span></p>
+      <ul>
+        <li>Everything in Free</li>
+        <li>Scan your project: claim extraction, cross-source comparison, disagreement detection</li>
+        <li>Consensus clustering, the literature matrix, citation gap detection</li>
+        <li>Every feature Pro gets, unlocked, for 7 days</li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <p class="tier-name">Pro</p>
+      <p class="tier-price">$29 <span>&mdash; one time, not a subscription</span></p>
+      <ul>
+        <li>Everything in the trial, permanently</li>
+        <li>No recurring charge, ever</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note">Discern uses your own Google Gemini API key for its AI features (see <a href="terms.html">Terms</a>) — that usage is billed to you directly by Google, separately from the price above. Google's free tier covers a substantial amount of typical use; see the extension's own in-app cost estimate before running a large scan.</p>
+</body>
+</html>
