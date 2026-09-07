@@ -2,57 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Upgrade - Discern</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discern — Research reconciliation for your browser</title>
+  <meta name="description" content="Discern is a Chrome extension that captures highlights from web pages and PDFs, then uses AI to compare claims across your sources and surface where they agree or disagree — with verified quotes.">
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #12141a;
-      color: #e8eaef;
-      font: 14px system-ui, sans-serif;
-    }
+    body { max-width: 720px; margin: 0 auto; padding: 64px 20px 96px; background: #12141a; color: #e8eaef;
+           font: 16px/1.6 -apple-system, 'Segoe UI', system-ui, sans-serif; }
+    h1 { font-size: 34px; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .tagline { color: #9aa1b0; font-size: 18px; margin: 0 0 40px; max-width: 48ch; }
+    .cta { display: inline-block; background: #7c8cff; color: #0d0f14; font-weight: 600; text-decoration: none;
+           padding: 12px 22px; border-radius: 8px; margin-bottom: 48px; }
+    .cta:hover { background: #93a0ff; }
+    h2 { font-size: 19px; margin-top: 44px; }
+    p, li { color: #cdd1db; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: #1c212c; border: 1px solid #2b303c; border-radius: 10px; padding: 16px 18px; }
+    .card h3 { margin: 0 0 6px; font-size: 15px; }
+    .card p { margin: 0; font-size: 14px; color: #9aa1b0; }
+    footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #2b303c; font-size: 13px; color: #9aa1b0; }
+    footer a { color: #7c8cff; text-decoration: none; margin-right: 16px; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <!--
-    Static, on GitHub Pages — not a Supabase Edge Function. Supabase's Edge
-    Functions deliberately downgrade any text/html GET response to
-    text/plain and attach a locked-down CSP, specifically to stop people
-    serving arbitrary web pages from their shared *.supabase.co domain; the
-    only supported way around it is a paid plan with a custom domain. Not
-    worth that for one static launcher page, so it lives here instead,
-    served as real, unmodified text/html the way GitHub Pages does for any
-    plain .html file.
+  <h1>Discern</h1>
+  <p class="tagline">Highlight sources as you research. Discern finds where they actually agree — and where they don't — with the exact quotes to back it up.</p>
 
-    Nothing on this page is secret. The Paddle "client-side token" is named
-    that specifically because it's meant to be public/embedded in a
-    browser page (the API key given during setup is the actual secret, and
-    never appears here) — same trust level as the Supabase publishable key
-    used elsewhere in this project.
-  -->
-  <p id="status">Opening checkout...</p>
-  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-  <script>
-    var userId = new URLSearchParams(window.location.search).get('uid');
-    var statusEl = document.getElementById('status');
+  <a class="cta" href="pricing.html">See pricing</a>
 
-    if (!userId) {
-      statusEl.textContent = 'Missing uid parameter.';
-    } else {
-      // Flip these two when moving off the sandbox: drop the Environment.set
-      // call entirely (defaults to production), and swap in the live
-      // client-side token and live price ID from the Paddle dashboard.
-      Paddle.Environment.set('sandbox');
-      Paddle.Initialize({ token: 'test_ef2afd20ac7a60f8faf29da45fa' });
+  <h2>What it does</h2>
+  <p>Discern is a browser extension for researchers who read across many sources. Capture highlights from any web page or PDF as you go, then run the reconciliation pipeline: it extracts the claims in your sources, compares them against each other, and shows you exactly where they agree, disagree, or say nothing at all — always anchored to a verified quote from the original text, never an unexplained conclusion.</p>
 
-      Paddle.Checkout.open({
-        items: [{ priceId: 'pri_01m17543ewnwrezw0dbcxnp55s', quantity: 1 }],
-        customData: { user_id: userId },
-      });
-    }
-  </script>
+  <div class="grid">
+    <div class="card">
+      <h3>Capture</h3>
+      <p>Highlight text on any page or PDF. Tags, comments, and citation metadata are captured automatically. Free, forever.</p>
+    </div>
+    <div class="card">
+      <h3>Reconcile</h3>
+      <p>Extracts claims across your captured sources and clusters them into agreement, disagreement, and gaps in coverage.</p>
+    </div>
+    <div class="card">
+      <h3>Verify</h3>
+      <p>Every AI-surfaced claim is checked against your original captured text before it's ever shown to you.</p>
+    </div>
+    <div class="card">
+      <h3>Bring your own key</h3>
+      <p>Uses your own Google Gemini API key. Calls go straight from your device to Google — we never see your data or your usage.</p>
+    </div>
+  </div>
+
+  <h2>Pricing</h2>
+  <p>Capture is free forever. The reconciliation pipeline is free to try for 7 days with full access, then a one-time $29 purchase — not a subscription. See the <a href="pricing.html" style="color:#7c8cff">Pricing page</a> for details.</p>
+
+  <footer>
+    <a href="pricing.html">Pricing</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="refunds.html">Refund Policy</a>
+    <a href="mailto:prabeshp848@gmail.com">Contact</a>
+  </footer>
 </body>
 </html>
